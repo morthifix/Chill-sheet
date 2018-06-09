@@ -75,5 +75,5 @@
 	"Injuries & Scars": "Blessures et Cicatrices",
 	"Phobias/Manias": "Phobies et Manies",
 	"Tomes, Spells and Artifacts": "Livres, sorts et artéfacts magiques",
-	"Encounters with Strange Entities": "Rencontre avec l'Inconnu",
+	"Encounters with Strange Entities": "Rencontre avec l'Inconnu"
 }
