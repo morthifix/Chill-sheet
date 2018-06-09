@@ -75,66 +75,66 @@
     <div class="sheet-section">
         <div class="sheet-col">
             <table style="width: 100%">
-               <h4 style="text-align: center" data-i18n="characteristics">Attributs</h4>
+               <h4 style="text-align:center" data-i18n="characteristics">Attributs</h4>
                <div class='sheet-col'>
                     <tr>
                         <td></td>
-                        <td class="skill-label" data-i18n="AGL-u">Agilité</td>
-                        <td><input class="skill-input" type="text" name="attr_agl" value="5"/></td>
+                        <td class="skill-label" data-i18n="AGL-u">AgilitÃ©</td>
+                        <td><input class="skill-input" type="text" name="attr_agl"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Agilit&#233;}} {{success=[[@{agl}]]}} {{hard=[[floor(@{agl}/2)]]}} {{extreme=[[floor(@{agl}/5)]]}} {{roll1=[[1d100]]}}' name='roll_agl_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="skill-label" data-i18n="FOR-u">Force</td>
-                        <td><input class="skill-input" type="text" name="attr_for" value="5"/></td>
+                        <td><input class="skill-input" type="text" name="attr_for"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Force}} {{success=[[@{for}]]}} {{hard=[[floor(@{for}/2)]]}} {{extreme=[[floor(@{for}/5)]]}} {{roll1=[[1d100]]}}' name='roll_for_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="skill-label" data-i18n="VIG-u">Vigueur</td>
-                        <td><input class="skill-input" type="text" name="attr_vig" value="5"/></td>
+                        <td><input class="skill-input" type="text" name="attr_vig"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Vigueur}} {{success=[[@{vig}]]}} {{hard=[[floor(@{vig}/2)]]}} {{extreme=[[floor(@{vig}/5)]]}} {{roll1=[[1d100]]}}' name='roll_vig_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="skill-label" data-i18n="CON-u">Concentration</td>
-                        <td><input class="skill-input" type="text" name="attr_con" value="5"/></td>
+                        <td><input class="skill-input" type="text" name="attr_con"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Concentration}} {{success=[[@{con}]]}} {{hard=[[floor(@{con}/2)]]}} {{extreme=[[floor(@{con}/5)]]}} {{roll1=[[1d100]]}}' name='roll_con_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="skill-label" data-i18n="PRS-u">Personalité</td>
-                        <td><input class="skill-input" type="text" name="attr_prs" value="5"/></td>
+                        <td class="skill-label" data-i18n="PRS-u">PersonalitÃ©</td>
+                        <td><input class="skill-input" type="text" name="attr_prs"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Personalit&#233;}} {{success=[[@{prs}]]}} {{hard=[[floor(@{prs}/2)]]}} {{extreme=[[floor(@{prs}/5)]]}} {{roll1=[[1d100]]}}' name='roll_prs_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="skill-label" data-i18n="VOL-u">Volonté</td>
-                        <td><input class="skill-input" type="text" name="attr_vol" value="5"/></td>
+                        <td class="skill-label" data-i18n="VOL-u">VolontÃ©</td>
+                        <td><input class="skill-input" type="text" name="attr_vol"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Volont&#233;}} {{success=[[@{vol}]]}} {{hard=[[floor(@{vol}/2)]]}} {{extreme=[[floor(@{vol}/5)]]}} {{roll1=[[1d100]]}}' name='roll_vol_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="skill-label" data-i18n="DEX-u">Dextérité</td>
-                        <td><input class="skill-input" type="text" name="attr_dex" value="5"/></td>
+                        <td class="skill-label" data-i18n="DEX-u">DextÃ©ritÃ©</td>
+                        <td><input class="skill-input" type="text" name="attr_dex"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Dext&#233;rit&#233;}} {{success=[[@{dex}]]}} {{hard=[[floor(@{dex}/2)]]}} {{extreme=[[floor(@{dex}/5)]]}} {{roll1=[[1d100]]}}' name='roll_dex_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="skill-label" data-i18n="PCN-u">Perception</td>
-                        <td><input class="skill-input" type="text" name="attr_pcn" value="5"/></td>
+                        <td><input class="skill-input" type="text" name="attr_pcn"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Perception}} {{success=[[@{pcn}]]}} {{hard=[[floor(@{pcn}/2)]]}} {{extreme=[[floor(@{pcn}/5)]]}} {{roll1=[[1d100]]}}' name='roll_pcn_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="skill-label" data-i18n="REF-u">Réflexes</td>
-                        <td><input class="skill-input" type="text" name="attr_ref" value="5"/></td>
+                        <td class="skill-label" data-i18n="REF-u">RÃ©flexes</td>
+                        <td><input class="skill-input" type="text" name="attr_ref"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de R&#233;flexes}} {{success=[[@{ref}]]}} {{hard=[[floor(@{ref}/2)]]}} {{extreme=[[floor(@{ref}/5)]]}} {{roll1=[[1d100]]}}' name='roll_ref_check' /></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="skill-label" data-i18n="INC-u">Perception de l'inconnu</td>
-                        <td><input class="skill-input" type="text" name="attr_INC" value="5"/></td>
+                        <td><input class="skill-input" type="text" name="attr_INC"/></td>
                         <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Perception de l&#39;Inconnu}} {{success=[[@{inc}]]}} {{hard=[[floor(@{inc}/2)]]}} {{extreme=[[floor(@{inc}/5)]]}} {{roll1=[[1d100]]}}' name='roll_inc_check' /></td>
                     </tr>
                 </div>    
@@ -142,12 +142,12 @@
         </div>
         <div class="sheet-col">
             <table style="width:100%">
-                <h4 style="text-align: center" data-i18n="skills">Comp&#233;tences</h4>
+                <h4 style="text-align:center" data-i18n="skills">Comp&#233;tences</h4>
                 <div class='sheet-col'>
                         <tr>
                             <td></td>
                             <td class="skill-label" data-i18n="movement-u">Mouvement (AGL)</td>
-                            <td><input class="skill-input" type="text" name="attr_movement" value="5"/></td>
+                            <td><input class="skill-input" type="text" name="attr_movement"/></td>
                    	        <td>
 						        <button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Mouvement}} {{success=[[@{movement}]]}} {{hard=[[floor(@{movement}/2)]]}} {{extreme=[[floor(@{movement}/5)]]}} {{roll1=[[1d100]]}}' name='roll_movement_check' />
 					        </td>
@@ -156,51 +156,51 @@
                         <tr>
                             <td></td>
                             <td class="skill-label" data-i18n="prouesse-u">Prouesse (FOR)</td>
-                            <td><input class="skill-input" type="text" name="attr_prouesse" value="1"/></td>
+                            <td><input class="skill-input" type="text" name="attr_prouesse"/></td>
                             <td>
 						        <button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Prouesse}} {{success=[[@{prouesse}]]}} {{hard=[[floor(@{prouesse}/2)]]}} {{extreme=[[floor(@{prouesse}/5)]]}} {{roll1=[[1d100]]}}' name='roll_prouesse_check' />
 					        </td>
 			            </tr>
                         <tr>
                             <td></td>
-                            <td class="skill-label" data-i18n="cac-u">Corps à Corps (VIG)</td>
-                            <td><input class="skill-input" type="text" name="attr_cac" value="5"/></td>
+                            <td class="skill-label" data-i18n="cac-u">Corps Ã  Corps (VIG)</td>
+                            <td><input class="skill-input" type="text" name="attr_cac"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de CaC}} {{success=[[@{cac}]]}} {{hard=[[floor(@{cac}/2)]]}} {{extreme=[[floor(@{cac}/5)]]}} {{roll1=[[1d100]]}}' name='roll_cac_check' /></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td class="skill-label" data-i18n="research-u">Recherches (CON)</td>
-                            <td><input class="skill-input" type="text" name="attr_research" value="1"/></td>
+                            <td><input class="skill-input" type="text" name="attr_research"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Recherches}} {{success=[[@{research}]]}} {{hard=[[floor(@{research}/2)]]}} {{extreme=[[floor(@{research}/5)]]}} {{roll1=[[1d100]]}}' name='roll_research_check' /></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td class="skill-label" data-i18n="communication-u">Communication (PRS)</td>
-                            <td><input class="skill-input" type="text" name="attr_communication" value="15"/></td>
+                            <td><input class="skill-input" type="text" name="attr_communication"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Communication}} {{success=[[@{communication}]]}} {{hard=[[floor(@{communication}/2)]]}} {{extreme=[[floor(@{communication}/5)]]}} {{roll1=[[1d100]]}}' name='roll_communication_check' /></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td class="skill-label" data-i18n="interview-u">Entretien (VOL)</td>
-                            <td><input class="skill-input" type="text" name="attr_interview" value="20"/></td>
+                            <td><input class="skill-input" type="text" name="attr_interview"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Entretien}} {{success=[[@{interview}]]}} {{hard=[[floor(@{interview}/2)]]}} {{extreme=[[floor(@{interview}/5)]]}} {{roll1=[[1d100]]}}' name='roll_interview_check' /></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td class="skill-label" data-i18n="terrain-u">Terrain (DEX)</td>
-                            <td><input class="skill-input" type="text" name="attr_terrain" /></td>
+                            <td><input class="skill-input" type="text" name="attr_terrain"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Terrain}} {{success=[[@{terrain}]]}} {{hard=[[floor(@{terrain}/2)]]}} {{extreme=[[floor(@{terrain}/5)]]}} {{roll1=[[1d100]]}}' name='roll_terrain_check' /></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td class="skill-label" data-i18n="investigation-u">Enquête (PCN)</td>
-                            <td><input class="skill-input" type="text" name="attr_investigation" value="0"/></td>
+                            <td class="skill-label" data-i18n="investigation-u">EnquÃªte (PCN)</td>
+                            <td><input class="skill-input" type="text" name="attr_investigation"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Investigation}} {{success=[[@{investigation}]]}} {{hard=[[floor(@{investigation}/2)]]}} {{extreme=[[floor(@{investigation}/5)]]}} {{roll1=[[1d100]]}}' name='roll_investigation_check' /></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td class="skill-label" data-i18n="ranged-u">Armes à Distance (REF)</td>
-                            <td><input class="skill-input" type="text" name="attr_ranged" value="5"/></td>
+                            <td class="skill-label" data-i18n="ranged-u">Armes Ã  Distance (REF)</td>
+                            <td><input class="skill-input" type="text" name="attr_ranged"/></td>
                             <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Arme &#224; Distance}} {{success=[[@{ranged}]]}} {{hard=[[floor(@{ranged}/2)]]}} {{extreme=[[floor(@{ranged}/5)]]}} {{roll1=[[1d100]]}}' name='roll_ranged_check' /></td>
                         </tr>
                 </div>        
@@ -208,7 +208,7 @@
         </div>
         <div class="sheet-col">
              <table style="width:100%">
-                <h4 style="text-align: center" data-i18n="Special">Sp&#233;cialisations</h4> 
+                <h4 style="text-align:center" data-i18n="Special">Sp&#233;cialisations</h4> 
                 <div class='sheet-col'>
                         <tr>
                             <td></td>
@@ -300,7 +300,7 @@
         <table style="width:100%">
             <tr>
                 <td style="width:18%">
-                    <select style="width:100%" name="attr_art1">
+                    <select style="width:100%" name="attr_artcat1">
                         <option data-i18n="Communication">Communication</option>
                         <option data-i18n="Detect">D&#233;ctection</option>
                         <option data-i18n="Immaterial">Incorporel</option>
@@ -320,7 +320,7 @@
         <table style="width:100%">
             <tr>
                 <td style="width:18%">
-                    <select style="width:100%" name="attr_art2">
+                    <select style="width:100%" name="attr_artcat2">
                         <option data-i18n="Communication">Communication</option>
                         <option data-i18n="Detect">D&#233;ctection</option>
                         <option data-i18n="Immaterial">Incorporel</option>
@@ -340,7 +340,7 @@
         <table style="width:100%">
             <tr>
                 <td style="width:18%">
-                    <select style="width:100%" name="attr_art3">
+                    <select style="width:100%" name="attr_artcat3">
                         <option data-i18n="Communication">Communication</option>
                         <option data-i18n="Detect">D&#233;ctection</option>
                         <option data-i18n="Immaterial">Incorporel</option>
@@ -360,7 +360,7 @@
         <table style="width:100%">
             <tr>
                 <td style="width:18%">
-                    <select style="width:100%" name="attr_art4">
+                    <select style="width:100%" name="attr_artcat4">
                         <option data-i18n="Communication">Communication</option>
                         <option data-i18n="Detect">D&#233;ctection</option>
                         <option data-i18n="Immaterial">Incorporel</option>
@@ -380,7 +380,7 @@
         <table style="width:100%">
             <tr>
                 <td style="width:18%">
-                    <select style="width:100%" name="attr_art5">
+                    <select style="width:100%" name="attr_artcat5">
                         <option data-i18n="Communication">Communication</option>
                         <option data-i18n="Detect">D&#233;ctection</option>
                         <option data-i18n="Immaterial">Incorporel</option>
@@ -400,7 +400,7 @@
         <table style="width:100%">
             <tr>
                 <td style="width:18%">
-                    <select style="width:100%" name="attr_art6">
+                    <select style="width:100%" name="attr_artcat6">
                         <option data-i18n="Communication">Communication</option>
                         <option data-i18n="Detect">D&#233;ctection</option>
                         <option data-i18n="Immaterial">Incorporel</option>
@@ -417,7 +417,7 @@
                 <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description6"/></td>
             </tr>
         </table>
-        <fieldset class="repeating_weapons">
+        <fieldset class="repeating_art">
             <table style="width:100%">
             <tr>
                 <td style="width:18%">
@@ -459,27 +459,48 @@
 <div class='sheet-2colrow'>
     <div class='sheet-col'>
         <h4 class="section-head" data-i18n="motiv-u">Motivation</h4>
-            <tr>
-                    <td colspan="2">
-                        <input type="checkbox" value="1" name="attr_agent_motiv">
-                    </td>
-                    <td class="skill-label"><input style="width:100%" type="text" name="attr_agentmotiv" /></td>
-                    <td colspan="2">
-                        <input type="checkbox" value="1" name="attr_gm">
-                    </td>
-            </tr>
+                <div class="sheet-section">
+                    <table style="width:100%">
+                        <tr>
+                            <td style="width:10%" colspan="2">
+                                <input type="checkbox" value="1" name="attr_agent_motiv">
+                            </td>
+                            <td class="skill-label"><input style="width:95%;text-align:center;" type="text" name="attr_agentmotiv"/></td>
+                            <td style="width:10%" colspan="2">   
+                                <input type="checkbox" value="1" name="attr_gm">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
     </div>
     <div class='sheet-col'>
         <h4 class="section-head" data-i18n="History-u">Historique</h4>
-            <tr>
-                    <td colspan="2">
-                        <input type="checkbox" style="width:5%;center" value="1" name="attr_agent_history1">
+        <div class="sheet-section">
+            <table style="width:100%">    
+                <tr>
+                    <td style="width:10%" colspan="2">
+                        <input type="checkbox" value="1" name="attr_agent_history">
                     </td>
-                    <td class="skill-label"><input style="width:70%;center" type="text" name="attr_agent_story1" /></td>
-                    <td colspan="2">
-                        <input type="checkbox" style="width:5%;center" value="1" name="attr_gm_history1">
+                    <td class="skill-label"><input style="width:95%;text-align:center;" type="text" name="attr_agent_story"/></td>
+                    <td style="width:10%" colspan="2">
+                        <input type="checkbox" value="1" name="attr_gm_history">
                     </td>
-            </tr>
+                </tr>
+            </table>
+            <fieldset class="repeating_art">
+                <table style="width:100%">    
+                        <tr>
+                            <td style="width:10%" colspan="2">
+                                <input type="checkbox" value="1" name="attr_agent_history1">
+                            </td>
+                            <td class="skill-label"><input style="width:95%;text-align:center;" type="text" name="attr_agent_story1"/></td>
+                            <td style="width:10%" colspan="2">
+                                <input type="checkbox" value="1" name="attr_gm_history1">
+                            </td>
+                        </tr>
+                </table>
+            </fieldset>
+        </div>
     </div>
 </div>
 <div class='sheet-2colrow'>
@@ -533,9 +554,9 @@
             <textarea name="attr_injuries_scars" class="backstory-box"></textarea>
             <span data-i18n="Phobias/Manias">Phobies et manies</span>
             <textarea name="attr_phobias_manias" class="backstory-box"></textarea>
-            <span data-i18n="Tomes, Spells and Artifacts">Livres, sorts et artéfacts magiques</span>
+            <span data-i18n="Tomes, Spells and Artifacts">Livres, sorts et artÃ©facts magiques</span>
             <textarea name="attr_tomes_spells_artifacts" class="backstory-box"></textarea>
-            <span data-i18n="Encounters with Strange Entities-z">Rencontre avec l&#39;Inconnu</span>
+            <span data-i18n="Encounters with Strange Entities">Rencontre avec l&#39;Inconnu</span>
             <textarea name="attr_encounters_with_strange_entities" class="backstory-box"></textarea>
         </div>
     </div>
