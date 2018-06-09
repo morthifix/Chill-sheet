@@ -1,0 +1,3387 @@
+<div class='sheet-2colrow'>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="investigatorinfo-u">Information de l&#39;Agent</h4>
+        <div class="section">
+            <table style="width:100%">
+                <tr>
+                    <td data-i18n="name-u">Nom</td>
+                    <td colspan="3"><input type="text" name="attr_name" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="player-u">Joueur</td>
+                    <td colspan="3"><input type="text" name="attr_player" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="occupation-u">M&#233;tier </td>
+                    <td colspan="3"><input type="text" name="attr_occupation" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="age-u">Age</td>
+                    <td><input type="text" name="attr_age" style="width:100%"></td>
+                    <td data-i18n="sex-u">Sexe</td>
+                    <td><input type="text" name="attr_sex" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="residence-u">Residence</td>
+                    <td colspan="3"><input type="text" name="attr_residence" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="birthplace-u">Lieu de Naissance</td>
+                    <td colspan="3"><input type="text" name="attr_birthplace" style="width:100%"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="damageinfo-u">Dommages</h4>
+        <div class="section">
+            <table style="width:100%">
+                <tr>
+                    <td data-i18n="stamina-u">Vigueur</td>
+                        <td><select style="width:100%" name="attr_stamina">
+                            <option data-i18n="Nothing">Rien</option>
+                            <option data-i18n="Scratch">Superficielle (-5 VIG)</option>
+                            <option data-i18n="Minor">Mineur (-10 VIG)</option>
+                            <option data-i18n="Serious">Grave (-20 VIG)</option>
+                            <option data-i18n="Major">Majeur (-30 VIG)</option>
+						    <option data-i18n="Critical">Critique (-50 VIG)</option>
+                            <option data-i18n="Deadly">Mortelle</option>
+                            </select>
+                        </td>    
+                </tr>     
+                <tr>
+                    <td data-i18n="trauma-u">Traumatismes</td>
+                        <td><select style="width:100%" name="attr_trauma">
+                            <option data-i18n="Nothing">Rien</option>
+                            <option data-i18n="Chocked">Secou&#233; (-5 VOL)</option>
+                            <option data-i18n="Minor">Mineur (-10 VOL)</option>
+                            <option data-i18n="Serious">Grave (-20 VOL)</option>
+                            <option data-i18n="Major">Majeur (-30 VOL)</option>
+						    <option data-i18n="Traumatised">Traumatis&#233; (-50 VIG)</option>
+                            </select>
+                        </td>    
+                </tr>     
+                <tr>
+                    <td><input type="checkbox" name="attr_chock"></td>
+                    <td class="skill-label" data-i18n="chockstate-u">Etat de choc</td>
+                    <td><input class="skill-input" type="text" name="attr_chockstate"/></td>
+                    <tr><td style="width:3%"></td><td class="statut-reminder" data-i18n="descritption-u">Description</td>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='sheet-3colrow'>
+    <h4 class="section-head" data-i18n="investigatorskills-u">Comp&#233;tence de l&#39;Agent</h4>
+    <div class="sheet-section">
+        <div class="sheet-col">
+            <table style="width: 100%">
+               <h4 style="text-align: center" data-i18n="characteristics">Attributs</h4>
+               <div class='sheet-col'>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="AGL-u">Agilité</td>
+                        <td><input class="skill-input" type="text" name="attr_agl" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Agilit&#233;}} {{success=[[@{agl}]]}} {{hard=[[floor(@{agl}/2)]]}} {{extreme=[[floor(@{agl}/5)]]}} {{roll1=[[1d100]]}}' name='roll_agl_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="FOR-u">Force</td>
+                        <td><input class="skill-input" type="text" name="attr_for" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Force}} {{success=[[@{for}]]}} {{hard=[[floor(@{for}/2)]]}} {{extreme=[[floor(@{for}/5)]]}} {{roll1=[[1d100]]}}' name='roll_for_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="VIG-u">Vigueur</td>
+                        <td><input class="skill-input" type="text" name="attr_vig" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Vigueur}} {{success=[[@{vig}]]}} {{hard=[[floor(@{vig}/2)]]}} {{extreme=[[floor(@{vig}/5)]]}} {{roll1=[[1d100]]}}' name='roll_vig_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="CON-u">Concentration</td>
+                        <td><input class="skill-input" type="text" name="attr_con" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Concentration}} {{success=[[@{con}]]}} {{hard=[[floor(@{con}/2)]]}} {{extreme=[[floor(@{con}/5)]]}} {{roll1=[[1d100]]}}' name='roll_con_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="PRS-u">Personalité</td>
+                        <td><input class="skill-input" type="text" name="attr_prs" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Personalit&#233;}} {{success=[[@{prs}]]}} {{hard=[[floor(@{prs}/2)]]}} {{extreme=[[floor(@{prs}/5)]]}} {{roll1=[[1d100]]}}' name='roll_prs_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="VOL-u">Volonté</td>
+                        <td><input class="skill-input" type="text" name="attr_vol" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Volont&#233;}} {{success=[[@{vol}]]}} {{hard=[[floor(@{vol}/2)]]}} {{extreme=[[floor(@{vol}/5)]]}} {{roll1=[[1d100]]}}' name='roll_vol_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="DEX-u">Dextérité</td>
+                        <td><input class="skill-input" type="text" name="attr_dex" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Dext&#233;rit&#233;}} {{success=[[@{dex}]]}} {{hard=[[floor(@{dex}/2)]]}} {{extreme=[[floor(@{dex}/5)]]}} {{roll1=[[1d100]]}}' name='roll_dex_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="PCN-u">Perception</td>
+                        <td><input class="skill-input" type="text" name="attr_pcn" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Perception}} {{success=[[@{pcn}]]}} {{hard=[[floor(@{pcn}/2)]]}} {{extreme=[[floor(@{pcn}/5)]]}} {{roll1=[[1d100]]}}' name='roll_pcn_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="REF-u">Réflexes</td>
+                        <td><input class="skill-input" type="text" name="attr_ref" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de R&#233;flexes}} {{success=[[@{ref}]]}} {{hard=[[floor(@{ref}/2)]]}} {{extreme=[[floor(@{ref}/5)]]}} {{roll1=[[1d100]]}}' name='roll_ref_check' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="skill-label" data-i18n="INC-u">Perception de l'inconnu</td>
+                        <td><input class="skill-input" type="text" name="attr_INC" value="5"/></td>
+                        <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Perception de l&#39;Inconnu}} {{success=[[@{inc}]]}} {{hard=[[floor(@{inc}/2)]]}} {{extreme=[[floor(@{inc}/5)]]}} {{roll1=[[1d100]]}}' name='roll_inc_check' /></td>
+                    </tr>
+                </div>    
+            </table>
+        </div>
+        <div class="sheet-col">
+            <table style="width:100%">
+                <h4 style="text-align: center" data-i18n="skills">Comp&#233;tences</h4>
+                <div class='sheet-col'>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="movement-u">Mouvement (AGL)</td>
+                            <td><input class="skill-input" type="text" name="attr_movement" value="5"/></td>
+                   	        <td>
+						        <button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Mouvement}} {{success=[[@{movement}]]}} {{hard=[[floor(@{movement}/2)]]}} {{extreme=[[floor(@{movement}/5)]]}} {{roll1=[[1d100]]}}' name='roll_movement_check' />
+					        </td>
+					
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="prouesse-u">Prouesse (FOR)</td>
+                            <td><input class="skill-input" type="text" name="attr_prouesse" value="1"/></td>
+                            <td>
+						        <button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Prouesse}} {{success=[[@{prouesse}]]}} {{hard=[[floor(@{prouesse}/2)]]}} {{extreme=[[floor(@{prouesse}/5)]]}} {{roll1=[[1d100]]}}' name='roll_prouesse_check' />
+					        </td>
+			            </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="cac-u">Corps à Corps (VIG)</td>
+                            <td><input class="skill-input" type="text" name="attr_cac" value="5"/></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de CaC}} {{success=[[@{cac}]]}} {{hard=[[floor(@{cac}/2)]]}} {{extreme=[[floor(@{cac}/5)]]}} {{roll1=[[1d100]]}}' name='roll_cac_check' /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="research-u">Recherches (CON)</td>
+                            <td><input class="skill-input" type="text" name="attr_research" value="1"/></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Recherches}} {{success=[[@{research}]]}} {{hard=[[floor(@{research}/2)]]}} {{extreme=[[floor(@{research}/5)]]}} {{roll1=[[1d100]]}}' name='roll_research_check' /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="communication-u">Communication (PRS)</td>
+                            <td><input class="skill-input" type="text" name="attr_communication" value="15"/></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Communication}} {{success=[[@{communication}]]}} {{hard=[[floor(@{communication}/2)]]}} {{extreme=[[floor(@{communication}/5)]]}} {{roll1=[[1d100]]}}' name='roll_communication_check' /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="interview-u">Entretien (VOL)</td>
+                            <td><input class="skill-input" type="text" name="attr_interview" value="20"/></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Entretien}} {{success=[[@{interview}]]}} {{hard=[[floor(@{interview}/2)]]}} {{extreme=[[floor(@{interview}/5)]]}} {{roll1=[[1d100]]}}' name='roll_interview_check' /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="terrain-u">Terrain (DEX)</td>
+                            <td><input class="skill-input" type="text" name="attr_terrain" /></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de Terrain}} {{success=[[@{terrain}]]}} {{hard=[[floor(@{terrain}/2)]]}} {{extreme=[[floor(@{terrain}/5)]]}} {{roll1=[[1d100]]}}' name='roll_terrain_check' /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="investigation-u">Enquête (PCN)</td>
+                            <td><input class="skill-input" type="text" name="attr_investigation" value="0"/></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Investigation}} {{success=[[@{investigation}]]}} {{hard=[[floor(@{investigation}/2)]]}} {{extreme=[[floor(@{investigation}/5)]]}} {{roll1=[[1d100]]}}' name='roll_investigation_check' /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label" data-i18n="ranged-u">Armes à Distance (REF)</td>
+                            <td><input class="skill-input" type="text" name="attr_ranged" value="5"/></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet d&#39;Arme &#224; Distance}} {{success=[[@{ranged}]]}} {{hard=[[floor(@{ranged}/2)]]}} {{extreme=[[floor(@{ranged}/5)]]}} {{roll1=[[1d100]]}}' name='roll_ranged_check' /></td>
+                        </tr>
+                </div>        
+            </table>
+        </div>
+        <div class="sheet-col">
+             <table style="width:100%">
+                <h4 style="text-align: center" data-i18n="Special">Sp&#233;cialisations</h4> 
+                <div class='sheet-col'>
+                        <tr>
+                            <td></td>
+                            <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill1_name" /></td>
+                            <td><input class="skill-input" type="text" name="attr_otherskill1" /></td>
+                            <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill1_name}}} {{success=[[@{otherskill1}]]}} {{hard=[[floor(@{otherskill1}/2)]]}} {{extreme=[[floor(@{otherskill1}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill1_check' /></td>
+                        </tr>
+                </div>        
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill2_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill2" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill2_name}}} {{success=[[@{otherskill2}]]}} {{hard=[[floor(@{otherskill2}/2)]]}} {{extreme=[[floor(@{otherskill2}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill2_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill3_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill3" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill1_name}}} {{success=[[@{otherskill3}]]}} {{hard=[[floor(@{otherskill3}/2)]]}} {{extreme=[[floor(@{otherskill3}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill3_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill4_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill4" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill4_name}}} {{success=[[@{otherskill4}]]}} {{hard=[[floor(@{otherskill4}/2)]]}} {{extreme=[[floor(@{otherskill4}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill4_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill5_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill5" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill5_name}}} {{success=[[@{otherskill5}]]}} {{hard=[[floor(@{otherskill5}/2)]]}} {{extreme=[[floor(@{otherskill5}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill5_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill6_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill6" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill6_name}}} {{success=[[@{otherskill6}]]}} {{hard=[[floor(@{otherskill6}/2)]]}} {{extreme=[[floor(@{otherskill6}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill6_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill7_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill7" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill7_name}}} {{success=[[@{otherskill7}]]}} {{hard=[[floor(@{otherskill7}/2)]]}} {{extreme=[[floor(@{otherskill7}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill7_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill8_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill8" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill8_name}}} {{success=[[@{otherskill8}]]}} {{hard=[[floor(@{otherskill8}/2)]]}} {{extreme=[[floor(@{otherskill8}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill8_check' /></td>
+                </tr>
+            </table>
+             <table style="width:100%">
+                <tr>
+                    <td></td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_otherskill9_name" /></td>
+                    <td><input class="skill-input" type="text" name="attr_otherskill9" /></td>
+                    <td><button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{otherskill9_name}}} {{success=[[@{otherskill9}]]}} {{hard=[[floor(@{otherskill9}/2)]]}} {{extreme=[[floor(@{otherskill9}/5)]]}} {{roll1=[[1d100]]}}' name='roll_otherskill9_check' /></td>
+                </tr>
+            </table>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class='sheet-colrow'>
+    <h4 class="section-head" data-i18n="art-u">L'Art</h4>
+    <div class="section">
+        <table style="width:100%">
+            <thead>
+                <th style="width:10%" data-i18n="artcat-u">Ecole</th>
+                <th style="width:6%"></th>
+                <th style="width:1%" data-i18n="spell-u">Sort</th>
+                <th style="width:50%" data-i18n="effect-u">Effet</th>
+            </thead>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art1">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spell1_name"/></td>
+                <td><input class="skill-input" type="text" name="attr_art1_value"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spell1_name}}} {{success=[[@{art1_value}]]}} {{hard=[[floor(@{art1_value}/2)]]}} {{extreme=[[floor(@{art1_value}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell1_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description1"/></td>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art2">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spell2_name"/></td>
+                <td><input class="skill-input" type="text" name="attr_art2_value"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spell2_name}}} {{success=[[@{art2_value}]]}} {{hard=[[floor(@{art2_value}/2)]]}} {{extreme=[[floor(@{art2_value}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell2_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description2"/></td>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art3">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spell3_name"/></td>
+                <td><input class="skill-input" type="text" name="attr_art3_value"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spell3_name}}} {{success=[[@{art3_value}]]}} {{hard=[[floor(@{art3_value}/2)]]}} {{extreme=[[floor(@{art3_value}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell3_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description3"/></td>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art4">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spell4_name"/></td>
+                <td><input class="skill-input" type="text" name="attr_art4_value"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spell4_name}}} {{success=[[@{art4_value}]]}} {{hard=[[floor(@{art4_value}/2)]]}} {{extreme=[[floor(@{art4_value}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell4_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description"/></td>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art5">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spell5_name"/></td>
+                <td><input class="skill-input" type="text" name="attr_art5_value"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spell5_name}}} {{success=[[@{art5_value}]]}} {{hard=[[floor(@{art5_value}/2)]]}} {{extreme=[[floor(@{art5_value}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell5_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description5"/></td>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art6">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spell6_name"/></td>
+                <td><input class="skill-input" type="text" name="attr_art6_value"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spell6_name}}} {{success=[[@{art6_value}]]}} {{hard=[[floor(@{art6_value}/2)]]}} {{extreme=[[floor(@{art6_value}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell6_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description6"/></td>
+            </tr>
+        </table>
+        <fieldset class="repeating_weapons">
+            <table style="width:100%">
+            <tr>
+                <td style="width:18%">
+                    <select style="width:100%" name="attr_art">
+                        <option data-i18n="Communication">Communication</option>
+                        <option data-i18n="Detect">D&#233;ctection</option>
+                        <option data-i18n="Immaterial">Incorporel</option>
+                        <option data-i18n="Protect">Protection</option>
+						<option data-i18n="Psychokinesis">Psychokin&#232;se</option>
+                        <option data-i18n="Restoration">Restauration</option>
+                     </select>
+                </td>
+                <td style="width:20%"><input style="width:100%;text-align:center;" type="text" name="attr_art_spellname"/></td>
+                <td><input class="skill-input" type="text" name="attr_artvalue"/></td>
+                <td style="width:6%">
+				<button class='new-roll' type='roll' value='&{template:coc-1} {{name=Jet de @{art_spellname}}} {{success=[[@{artvalue}]]}} {{hard=[[floor(@{artvalue}/2)]]}} {{extreme=[[floor(@{artvalue}/5)]]}} {{roll1=[[1d100]]}}' name='roll_art_spell_check' />
+				</td>
+                <td style="width:100%"><input style="width:100%;text-align:center;" type="text" name="attr_description"/></td>
+            </tr>
+            </table>
+        </fieldset>
+    </div>
+</div>
+<div class='sheet-2colrow'>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="quality-u">Qualit&#233;s</h4>
+        <div class="sheet-section">
+            <textarea name="attr_quality" style="width:97%;height:180px"></textarea>
+        </div>
+    </div>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="default-u">D&#233;fauts</h4>
+        <div class="sheet-section">
+            <textarea name="attr_default" style="width:97%;height:180px"></textarea>
+        </div>
+    </div>
+    </div>
+</div>
+<div class='sheet-2colrow'>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="motiv-u">Motivation</h4>
+            <tr>
+                    <td colspan="2">
+                        <input type="checkbox" value="1" name="attr_agent_motiv">
+                    </td>
+                    <td class="skill-label"><input style="width:100%" type="text" name="attr_agentmotiv" /></td>
+                    <td colspan="2">
+                        <input type="checkbox" value="1" name="attr_gm">
+                    </td>
+            </tr>
+    </div>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="History-u">Historique</h4>
+            <tr>
+                    <td colspan="2">
+                        <input type="checkbox" style="width:5%;center" value="1" name="attr_agent_history1">
+                    </td>
+                    <td class="skill-label"><input style="width:70%;center" type="text" name="attr_agent_story1" /></td>
+                    <td colspan="2">
+                        <input type="checkbox" style="width:5%;center" value="1" name="attr_gm_history1">
+                    </td>
+            </tr>
+    </div>
+</div>
+<div class='sheet-2colrow'>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="gearandposessions-u">Equipement</h4>
+        <div class="sheet-section">
+            <textarea name="attr_gear_and_posessions" style="width:97%;height:180px"></textarea>
+        </div>
+    </div>
+    <div class='sheet-col'>
+        <h4 class="section-head" data-i18n="cashandassets-u">Argent</h4>
+        <div class="sheet-section">
+            <table style="width:100%">
+                <tr>
+                    <td data-i18n="spendinglevel-u">Niveau de vie</td>
+                    <td><input type="text" name="attr_spending_level" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="cash-u">Cash </td>
+                    <td><input type="text" name="attr_cash" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td data-i18n="assets-u">Compte en banque </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><textarea style="width:98%;height:100px" name="attr_assets"></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='sheet-2colrow'>
+    <h4 class="section-head" data-i18n="backstory-u">Background</h4>
+    <div class="sheet-section">
+        <div class='sheet-col'>
+            <span data-i18n="Personal Description">Description Personnelle</span>
+            <textarea name="attr_personal_description" class="backstory-box"></textarea>
+            <span data-i18n="Ideology/Beliefs">Ideologie et croyance</span>
+            <textarea name="attr_ideaology_beliefs" class="backstory-box"></textarea>
+            <span data-i18n="Significant People">Attaches</span>
+            <textarea name="attr_significant_people" class="backstory-box"></textarea>
+            <span data-i18n="Meaningful Locations">Lieu plaisant</span>
+            <textarea name="attr_meaningful_locations" class="backstory-box"></textarea>
+            <span data-i18n="Treasured Possessions">Tr&#233;sors possed&#233;s</span>
+            <textarea name="attr_treasured_posessions" class="backstory-box"></textarea>
+        </div>
+        <div class='sheet-col'>
+            <span data-i18n="Traits">Traits</span>
+            <textarea name="attr_traits" class="backstory-box"></textarea>
+            <span data-i18n="Injuries & Scars">Blessures et cicatrices</span>
+            <textarea name="attr_injuries_scars" class="backstory-box"></textarea>
+            <span data-i18n="Phobias/Manias">Phobies et manies</span>
+            <textarea name="attr_phobias_manias" class="backstory-box"></textarea>
+            <span data-i18n="Tomes, Spells and Artifacts">Livres, sorts et artéfacts magiques</span>
+            <textarea name="attr_tomes_spells_artifacts" class="backstory-box"></textarea>
+            <span data-i18n="Encounters with Strange Entities-z">Rencontre avec l&#39;Inconnu</span>
+            <textarea name="attr_encounters_with_strange_entities" class="backstory-box"></textarea>
+        </div>
+    </div>
+</div>
+
+
+<!--
+&{template:coc} {{name=Test}} {{success=[[50]]}} {{hard=[[floor(50/2)]]}} {{extreme=[[floor(50/5)]]}} {{roll1=[[1d100]]}} {{roll2=[[1d100]]}} {{roll3=[[1d100]]}}
+-->
+
+<rolltemplate class="sheet-rolltemplate-coc">
+    <table>
+        <caption>{{name}}</caption>
+        <tr>
+            <td class="template_label">Value:</td>
+            <td class="template_value">{{success}}/{{hard}}/{{extreme}}</td>
+        </tr>
+        <tr>
+            <td class="template_label">Rolled:</td>
+            <td class="template_value">{{roll1}}, {{roll2}}, {{roll3}}</td>
+        </tr>
+        <tr style="background:#DFF0D8;">
+            <td class="template_label">+2:</td>
+            <!-- Is roll2 less than roll1 -->
+            {{#rollLess() roll2 roll1}}
+              <!-- Is roll3 less than roll2-->
+              {{#rollLess() roll3 roll2}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollLess() roll3 roll2}}
+              <!-- Is roll2 less than roll3 -->
+              {{#rollLess() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollLess() roll2 roll3}}
+              <!-- Are roll2 and roll3 equal-->
+              {{#rollTotal() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollTotal() roll2 roll3}}
+            {{/rollLess() roll2 roll1}}
+            <!-- Is roll1 less than roll2 -->
+            {{#rollLess() roll1 roll2}}
+              <!-- Is roll3 less than roll1-->
+              {{#rollLess() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollLess() roll3 roll1}}
+              <!-- Is roll1 less than roll3 -->
+              {{#rollLess() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollLess() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollLess() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- Is roll3 less than roll1-->
+              {{#rollLess() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollLess() roll3 roll1}}
+              <!-- Is roll1 less than roll3 -->
+              {{#rollLess() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollLess() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr style="background:#D9EDF7;">
+            <td class="template_label">+1:</td>
+            <!-- Is roll2 lower than roll1 -->
+            {{#rollLess() roll2 roll1}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll2 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll2 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll2 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll2 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll2 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll2 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll2 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll2 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll2 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll2 2 extreme}}
+                {{/rollBetween() roll2 2 hard}}
+              {{/rollBetween() roll2 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll2 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll2 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll2 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll2 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll2 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll2 success}}
+            {{/rollLess() roll2 roll1}}
+            <!-- Is roll1 lower than roll2 -->
+            {{#rollLess() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollLess() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr style="background:#D3D3D3;">
+            <td class="template_label">&nbsp;&nbsp;0:</td>
+            <!-- 01 is always Critical -->
+            {{#rollTotal() roll1 1}} 
+              <td class="template_value"><b>Critical</b></td>
+            {{/rollTotal() roll1 1}} 
+            <!-- Is Success -->
+            {{#rollBetween() roll1 2 success}}
+              <!-- Is Standard -->
+              {{#rollGreater() roll1 hard}}
+                <td class="template_value">Success</td>
+              {{/rollGreater() roll1 hard}}
+              <!-- Is Hard or Extreme -->
+              {{#rollBetween() roll1 2 hard}}
+                <!-- Is Hard -->
+                {{#rollGreater() roll1 extreme}}
+                  <td class="template_value">Hard</td>
+                {{/rollGreater() roll1 extreme}}
+                <!-- Is Extreme -->
+                {{#rollBetween() roll1 2 extreme}}
+                  <td class="template_value"><b>Extreme</b></td>
+                {{/rollBetween() roll1 2 extreme}}
+              {{/rollBetween() roll1 2 hard}}
+            {{/rollBetween() roll1 2 success}}
+            <!-- Is Not Success -->
+            {{#rollGreater() roll1 success}}
+              <!-- Is skill >= 50 -->
+              {{#rollGreater() success 49}}
+                <!-- Is Fumble -->
+                {{#rollTotal() roll1 100}} 
+                  <td class="template_value"><b>Fumble</b></td>
+                {{/rollTotal() roll1 100}} 
+                <!-- Is Fail -->
+                {{#rollLess() roll1 100}}
+                  <td class="template_value">Fail</td>
+                {{/rollLess() roll1 100}}
+              {{/rollGreater() success 49}}
+              <!-- Is skill < 50 -->
+              {{#rollLess() success 50}}
+                <!-- Is Fumble -->
+                {{#rollGreater() roll1 95}}
+                  <td class="template_value"><b>Fumble</b></td>
+                {{/rollGreater() roll1 95}}
+                <!-- Is Fail -->
+                {{#rollLess() roll1 96}}
+                  <td class="template_value">Fail</td>
+                {{/rollLess() roll1 96}}
+              {{/rollLess() success 50}}
+            {{/rollGreater() roll1 success}}
+        </tr>
+        <tr style="background:#FCF8E3;">
+            <td class="template_label">-1:</td>
+            <!-- Is roll2 greater than roll1 -->
+            {{#rollGreater() roll2 roll1}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll2 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll2 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll2 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll2 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll2 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll2 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll2 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll2 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll2 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll2 2 extreme}}
+                {{/rollBetween() roll2 2 hard}}
+              {{/rollBetween() roll2 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll2 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll2 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll2 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll2 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll2 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll2 success}}
+            {{/rollGreater() roll2 roll1}}
+            <!-- Is roll1 greater than roll2 -->
+            {{#rollGreater() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollGreater() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr style="background:#F2DEDE;">
+            <td class="template_label">-2:</td>
+            <!-- Is roll2 greater than roll1 -->
+            {{#rollGreater() roll2 roll1}}
+              <!-- Is roll3 greater than roll2-->
+              {{#rollGreater() roll3 roll2}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollGreater() roll3 roll2}}
+              <!-- Is roll2 greater than roll3 -->
+              {{#rollGreater() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollGreater() roll2 roll3}}
+              <!-- Are roll2 and roll3 equal-->
+              {{#rollTotal() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollTotal() roll2 roll3}}
+            {{/rollGreater() roll2 roll1}}
+            <!-- Is roll1 greater than roll2 -->
+            {{#rollGreater() roll1 roll2}}
+              <!-- Is roll3 greater than roll1-->
+              {{#rollGreater() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollGreater() roll3 roll1}}
+              <!-- Is roll1 greater than roll3 -->
+              {{#rollGreater() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollGreater() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollGreater() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- Is roll3 greater than roll1-->
+              {{#rollGreater() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollGreater() roll3 roll1}}
+              <!-- Is roll1 greater than roll3 -->
+              {{#rollGreater() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollGreater() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+    </table>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-coc-attack">
+    <table>
+        <caption>{{name}}</caption>
+        <tr><td class="template_label">Value:</td><td class="template_value">{{success}}/{{hard}}/{{extreme}}</td></tr>
+        {{#malf}}
+            <tr><td class="template_label">Malf:</td><td class="template_value">{{malf}}</td></tr>
+        {{/malf}}
+        <tr><td class="template_label">Rolled:</td><td class="template_value">{{roll1}}, {{roll2}}, {{roll3}}</td></tr>
+        <tr style="background:#DFF0D8;">
+            <td class="template_label">+2:</td>
+            <!-- Is roll2 less than roll1 -->
+            {{#rollLess() roll2 roll1}}
+              <!-- Is roll3 less than roll2-->
+              {{#rollLess() roll3 roll2}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollLess() roll3 roll2}}
+              <!-- Is roll2 less than roll3 -->
+              {{#rollLess() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollLess() roll2 roll3}}
+              <!-- Are roll2 and roll3 equal-->
+              {{#rollTotal() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollTotal() roll2 roll3}}
+            {{/rollLess() roll2 roll1}}
+            <!-- Is roll1 less than roll2 -->
+            {{#rollLess() roll1 roll2}}
+              <!-- Is roll3 less than roll1-->
+              {{#rollLess() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollLess() roll3 roll1}}
+              <!-- Is roll1 less than roll3 -->
+              {{#rollLess() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollLess() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollLess() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- Is roll3 less than roll1-->
+              {{#rollLess() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollLess() roll3 roll1}}
+              <!-- Is roll1 less than roll3 -->
+              {{#rollLess() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollLess() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr style="background:#D9EDF7;">
+            <td class="template_label">+1:</td>
+            <!-- Is roll2 lower than roll1 -->
+            {{#rollLess() roll2 roll1}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll2 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll2 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll2 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll2 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll2 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll2 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll2 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll2 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll2 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll2 2 extreme}}
+                {{/rollBetween() roll2 2 hard}}
+              {{/rollBetween() roll2 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll2 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll2 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll2 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll2 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll2 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll2 success}}
+            {{/rollLess() roll2 roll1}}
+            <!-- Is roll1 lower than roll2 -->
+            {{#rollLess() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollLess() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr style="background:#D3D3D3;">
+            <td class="template_label">&nbsp;&nbsp;0:</td>
+            <!-- 01 is always Critical -->
+            {{#rollTotal() roll1 1}} 
+              <td class="template_value"><b>Critical</b></td>
+            {{/rollTotal() roll1 1}} 
+            <!-- Is Success -->
+            {{#rollBetween() roll1 2 success}}
+              <!-- Is Standard -->
+              {{#rollGreater() roll1 hard}}
+                <td class="template_value">Success</td>
+              {{/rollGreater() roll1 hard}}
+              <!-- Is Hard or Extreme -->
+              {{#rollBetween() roll1 2 hard}}
+                <!-- Is Hard -->
+                {{#rollGreater() roll1 extreme}}
+                  <td class="template_value">Hard</td>
+                {{/rollGreater() roll1 extreme}}
+                <!-- Is Extreme -->
+                {{#rollBetween() roll1 2 extreme}}
+                  <td class="template_value"><b>Extreme</b></td>
+                {{/rollBetween() roll1 2 extreme}}
+              {{/rollBetween() roll1 2 hard}}
+            {{/rollBetween() roll1 2 success}}
+            <!-- Is Not Success -->
+            {{#rollGreater() roll1 success}}
+              <!-- Is skill >= 50 -->
+              {{#rollGreater() success 49}}
+                <!-- Is Fumble -->
+                {{#rollTotal() roll1 100}} 
+                  <td class="template_value"><b>Fumble</b></td>
+                {{/rollTotal() roll1 100}} 
+                <!-- Is Fail -->
+                {{#rollLess() roll1 100}}
+                  <td class="template_value">Fail</td>
+                {{/rollLess() roll1 100}}
+              {{/rollGreater() success 49}}
+              <!-- Is skill < 50 -->
+              {{#rollLess() success 50}}
+                <!-- Is Fumble -->
+                {{#rollGreater() roll1 95}}
+                  <td class="template_value"><b>Fumble</b></td>
+                {{/rollGreater() roll1 95}}
+                <!-- Is Fail -->
+                {{#rollLess() roll1 96}}
+                  <td class="template_value">Fail</td>
+                {{/rollLess() roll1 96}}
+              {{/rollLess() success 50}}
+            {{/rollGreater() roll1 success}}
+        </tr>
+        <tr style="background:#FCF8E3;">
+            <td class="template_label">-1:</td>
+            <!-- Is roll2 greater than roll1 -->
+            {{#rollGreater() roll2 roll1}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll2 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll2 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll2 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll2 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll2 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll2 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll2 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll2 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll2 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll2 2 extreme}}
+                {{/rollBetween() roll2 2 hard}}
+              {{/rollBetween() roll2 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll2 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll2 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll2 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll2 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll2 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll2 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll2 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll2 success}}
+            {{/rollGreater() roll2 roll1}}
+            <!-- Is roll1 greater than roll2 -->
+            {{#rollGreater() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollGreater() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- 01 is always Critical -->
+              {{#rollTotal() roll1 1}} 
+                <td class="template_value"><b>Critical</b></td>
+              {{/rollTotal() roll1 1}} 
+              <!-- Is Success -->
+              {{#rollBetween() roll1 2 success}}
+                <!-- Is Standard -->
+                {{#rollGreater() roll1 hard}}
+                  <td class="template_value">Success</td>
+                {{/rollGreater() roll1 hard}}
+                <!-- Is Hard or Extreme -->
+                {{#rollBetween() roll1 2 hard}}
+                  <!-- Is Hard -->
+                  {{#rollGreater() roll1 extreme}}
+                    <td class="template_value">Hard</td>
+                  {{/rollGreater() roll1 extreme}}
+                  <!-- Is Extreme -->
+                  {{#rollBetween() roll1 2 extreme}}
+                    <td class="template_value"><b>Extreme</b></td>
+                  {{/rollBetween() roll1 2 extreme}}
+                {{/rollBetween() roll1 2 hard}}
+              {{/rollBetween() roll1 2 success}}
+              <!-- Is Not Success -->
+              {{#rollGreater() roll1 success}}
+                <!-- Is skill >= 50 -->
+                {{#rollGreater() success 49}}
+                  <!-- Is Fumble -->
+                  {{#rollTotal() roll1 100}} 
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollTotal() roll1 100}} 
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 100}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 100}}
+                {{/rollGreater() success 49}}
+                <!-- Is skill < 50 -->
+                {{#rollLess() success 50}}
+                  <!-- Is Fumble -->
+                  {{#rollGreater() roll1 95}}
+                    <td class="template_value"><b>Fumble</b></td>
+                  {{/rollGreater() roll1 95}}
+                  <!-- Is Fail -->
+                  {{#rollLess() roll1 96}}
+                    <td class="template_value">Fail</td>
+                  {{/rollLess() roll1 96}}
+                {{/rollLess() success 50}}
+              {{/rollGreater() roll1 success}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr style="background:#F2DEDE;">
+            <td class="template_label">-2:</td>
+            <!-- Is roll2 greater than roll1 -->
+            {{#rollGreater() roll2 roll1}}
+              <!-- Is roll3 greater than roll2-->
+              {{#rollGreater() roll3 roll2}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollGreater() roll3 roll2}}
+              <!-- Is roll2 greater than roll3 -->
+              {{#rollGreater() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollGreater() roll2 roll3}}
+              <!-- Are roll2 and roll3 equal-->
+              {{#rollTotal() roll2 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll2 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll2 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll2 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll2 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll2 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll2 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll2 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll2 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll2 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll2 2 extreme}}
+                  {{/rollBetween() roll2 2 hard}}
+                {{/rollBetween() roll2 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll2 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll2 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll2 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll2 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll2 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll2 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll2 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll2 success}}
+              {{/rollTotal() roll2 roll3}}
+            {{/rollGreater() roll2 roll1}}
+            <!-- Is roll1 greater than roll2 -->
+            {{#rollGreater() roll1 roll2}}
+              <!-- Is roll3 greater than roll1-->
+              {{#rollGreater() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollGreater() roll3 roll1}}
+              <!-- Is roll1 greater than roll3 -->
+              {{#rollGreater() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollGreater() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollGreater() roll1 roll2}}
+            <!-- Are roll1 and roll2 equal-->
+            {{#rollTotal() roll1 roll2}}
+              <!-- Is roll3 greater than roll1-->
+              {{#rollGreater() roll3 roll1}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll3 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll3 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll3 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll3 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll3 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll3 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll3 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll3 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll3 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll3 2 extreme}}
+                  {{/rollBetween() roll3 2 hard}}
+                {{/rollBetween() roll3 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll3 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll3 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll3 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll3 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll3 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll3 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll3 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll3 success}}
+              {{/rollGreater() roll3 roll1}}
+              <!-- Is roll1 greater than roll3 -->
+              {{#rollGreater() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollGreater() roll1 roll3}}
+              <!-- Are roll1 and roll3 equal-->
+              {{#rollTotal() roll1 roll3}}
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+              {{/rollTotal() roll1 roll3}}
+            {{/rollTotal() roll1 roll2}}
+        </tr>
+        <tr><td class="template_label">Dam:</td><td class="template_value">{{damage}}</td></tr>
+    </table>
+</rolltemplate>
+
+<!--  Smaller Template
+&{template:coc-1} {{name=Test}} {{success=[[50]]}} {{hard=[[floor(50/2)]]}} {{extreme=[[floor(50/5)]]}} {{roll1=[[1d100]]}}
+-->
+<rolltemplate class="sheet-rolltemplate-coc-1">
+    <table>
+        <caption>{{name}}</caption>
+        <tr>
+            <td class="template_label">Value:</td>
+            <td class="template_value">{{success}}/{{hard}}/{{extreme}}</td>
+        </tr>
+        <tr>
+            <td class="template_label">Rolled:</td>
+            <td class="template_value">{{roll1}}</td>
+        </tr>
+        <tr style="background:#BEBEBE;">
+		    <td class="template_label">Result:</td>
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td style="background:Lime;" class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td style="background:DarkGreen;" class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td style="background:Green;" class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td style="background:LightGreen;" class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td style="background:Red;" class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td style="background:Crimson;" class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td style="background:Red;" class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td style="background:Crimson;" class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+			</td>
+        </tr>
+    </table>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-coc-attack-1">
+    <table>
+        <caption>{{name}}</caption>
+        <tr><td class="template_label">Value:</td><td class="template_value">{{success}}/{{hard}}/{{extreme}}</td></tr>
+        {{#malf}}
+            <tr><td class="template_label">Malf:</td><td class="template_value">{{malf}}</td></tr>
+        {{/malf}}
+        <tr><td class="template_label">Rolled:</td><td class="template_value">{{roll1}}</td></tr>
+        <tr style="background:#BEBEBE;">
+            <td class="template_label">Result:</td>
+                <!-- 01 is always Critical -->
+                {{#rollTotal() roll1 1}} 
+                  <td style="background:Lime;" class="template_value"><b>Critical</b></td>
+                {{/rollTotal() roll1 1}} 
+                <!-- Is Success -->
+                {{#rollBetween() roll1 2 success}}
+                  <!-- Is Standard -->
+                  {{#rollGreater() roll1 hard}}
+                    <td style="background:DarkGreen;" class="template_value">Success</td>
+                  {{/rollGreater() roll1 hard}}
+                  <!-- Is Hard or Extreme -->
+                  {{#rollBetween() roll1 2 hard}}
+                    <!-- Is Hard -->
+                    {{#rollGreater() roll1 extreme}}
+                      <td style="background:Green;" class="template_value">Hard</td>
+                    {{/rollGreater() roll1 extreme}}
+                    <!-- Is Extreme -->
+                    {{#rollBetween() roll1 2 extreme}}
+                      <td style="background:LightGreen;" class="template_value"><b>Extreme</b></td>
+                    {{/rollBetween() roll1 2 extreme}}
+                  {{/rollBetween() roll1 2 hard}}
+                {{/rollBetween() roll1 2 success}}
+                <!-- Is Not Success -->
+                {{#rollGreater() roll1 success}}
+                  <!-- Is skill >= 50 -->
+                  {{#rollGreater() success 49}}
+                    <!-- Is Fumble -->
+                    {{#rollTotal() roll1 100}} 
+                      <td style="background:Red;" class="template_value"><b>Fumble</b></td>
+                    {{/rollTotal() roll1 100}} 
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 100}}
+                      <td style="background:Crimson;" class="template_value">Fail</td>
+                    {{/rollLess() roll1 100}}
+                  {{/rollGreater() success 49}}
+                  <!-- Is skill < 50 -->
+                  {{#rollLess() success 50}}
+                    <!-- Is Fumble -->
+                    {{#rollGreater() roll1 95}}
+                      <td style="background:Red;" class="template_value"><b>Fumble</b></td>
+                    {{/rollGreater() roll1 95}}
+                    <!-- Is Fail -->
+                    {{#rollLess() roll1 96}}
+                      <td style="background:Crimson;" class="template_value">Fail</td>
+                    {{/rollLess() roll1 96}}
+                  {{/rollLess() success 50}}
+                {{/rollGreater() roll1 success}}
+        </tr>
+        <tr>
+			<td class="template_label">Dam:</td><td class="template_value">{{damage}}</td>
+		</tr>
+    </table>
+</rolltemplate>
+<!-- WORKERS -->
+<script type="text/worker">
+  on("add:dex add:siz add:str change:dex change:siz change:str", function() {
+    getAttrs(["str", "siz", "dex", "age"], function(values) {
+      var istr = parseInt(values.str);
+      var isiz = parseInt(values.siz);
+      var idex = parseInt(values.dex);
+	  var iage = parseInt(values.age);
+      var siz_str_tot = istr + isiz;
+      switch (true) {
+        case (siz_str_tot < 65):
+          setAttrs({
+            damage_bonus: "-2",
+            build: "-2"
+          });
+          break;
+        case (siz_str_tot > 64 && siz_str_tot < 85):
+          setAttrs({
+            damage_bonus: "-1",
+            build: "-1"
+          });
+          break;
+        case (siz_str_tot > 84 && siz_str_tot < 125):
+          setAttrs({
+            damage_bonus: "0",
+            build: "0"
+          });
+          break;
+        case (siz_str_tot > 124 && siz_str_tot < 165):
+          setAttrs({
+            damage_bonus: "1d4",
+            build: "+1"
+          });
+          break;
+        case (siz_str_tot > 164 && siz_str_tot < 205):
+          setAttrs({
+            damage_bonus: "1d6",
+            build: "+2"
+          });
+          break;
+        case (siz_str_tot > 204 && siz_str_tot < 285):
+          setAttrs({
+            damage_bonus: "2d6",
+            build: "+3"
+          });
+          break;
+        case (siz_str_tot > 284 && siz_str_tot < 365):
+          setAttrs({
+            damage_bonus: "3d6",
+            build: "+4"
+          });
+          break;
+        case (siz_str_tot > 364 && siz_str_tot < 445):
+          setAttrs({
+            damage_bonus: "4d6",
+            build: "+5"
+          });
+          break;
+        case (siz_str_tot > 444 && siz_str_tot < 525):
+          setAttrs({
+            damage_bonus: "5d6",
+            build: "+6"
+          });
+          break;
+      } //end switch (true)
+	if (idex < isiz && istr < isiz) {
+        var imov = 7;
+      } else if (idex > isiz && istr > isiz) {
+        var imov = 9;
+      } else {
+        var imov = 8;
+      }
+    if (iage < 40) {
+      imov = imov;
+    } else if (iage > 39 && iage < 50) {
+      imov = imov - 1;
+    } else if (iage > 49 && iage < 60) {
+      imov = imov - 2;
+    } else if (iage > 59 && iage < 70) {
+      imov = imov - 3;
+    } else if (iage > 69 && iage < 80) {
+      imov = imov - 4;
+    } else if (iage > 79 && iage < 90) {
+      imov = imov - 5;
+    } else if (iage > 89) {
+      imov = imov - 6;
+    }
+    setAttrs({mov: imov});
+    }); //end getAttrs
+  }); //end on("add:siz...
+  on("add:age change:age", function() {
+    getAttrs(["str", "siz", "dex", "age"], function(values) {
+      var iage = parseInt(values.age);
+	  var istr = parseInt(values.str);
+      var isiz = parseInt(values.siz);
+      var idex = parseInt(values.dex);
+	if (idex < isiz && istr < isiz) {
+        var imov = 7;
+      } else if (idex > isiz && istr > isiz) {
+        var imov = 9;
+      } else {
+        var imov = 8;
+      }
+    if (iage < 40) {
+      imov = imov;
+    } else if (iage > 39 && iage < 50) {
+      imov = imov - 1;
+    } else if (iage > 49 && iage < 60) {
+      imov = imov - 2;
+    } else if (iage > 59 && iage < 70) {
+      imov = imov - 3;
+    } else if (iage > 69 && iage < 80) {
+      imov = imov - 4;
+    } else if (iage > 79 && iage < 90) {
+      imov = imov - 5;
+    } else if (iage > 89) {
+      imov = imov - 6;
+    }
+    setAttrs({mov: imov});
+    }); //end getAttrs
+  }); //end on("add:siz...
+</script>
